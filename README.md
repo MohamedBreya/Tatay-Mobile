@@ -9,13 +9,12 @@
 ```bash
 flutter pub get
 flutter run                                   # على الـ Mock (الافتراضي)، من غير باك
-flutter run --dart-define=USE_MOCK=false      # على الباك المحلي http://10.0.2.2:8080/api/v1
+flutter run --dart-define=API_BASE_URL=http://10.0.2.2:8080/api/v1  # على الباك المحلي
 ```
 
 | المتغير (`--dart-define`) | الافتراضي | الغرض |
 | --- | --- | --- |
-| `USE_MOCK` | `true` | كل الـ Features تشتغل على `MockDataSource` |
-| `API_BASE_URL` | `http://10.0.2.2:8080/api/v1` | عنوان الباك (الـ Emulator بيشوف الجهاز على `10.0.2.2`) |
+| `API_BASE_URL` | غير محدد | عنوان الباك؛ لو مش متحدد أو فاضي، كل الـ Features تشتغل على `MockDataSource` |
 | `PUSH_ENABLED` | `false` | تشغيل FCM. محتاج `android/app/google-services.json` |
 | `MOCK_SCENARIO` | `normal` | `empty` أو `error` أو `slow` علشان تجرب حالات الشاشات |
 

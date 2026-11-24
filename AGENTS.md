@@ -115,6 +115,17 @@ Do not mix mock behavior into the production remote/local data source.
 * Extract complex nested widgets into their own stateless widgets within a section-specific subfolder.
 * Pass data into widgets via constructors using standard BLoC/Cubit BlocBuilder or BlocSelector state streams.
 * Model finite status/state variants, including Bloc/Cubit states, with Dart sealed classes instead of unrelated regular classes so every case can be handled exhaustively.
+* Use package imports for files inside this application. Never use relative imports to reference `lib/` files.
+
+```dart
+// Preferred
+import 'package:<ProjectName>/core/network/result.dart';
+import 'package:<ProjectName>/features/auth/data/repositories/auth_repository.dart';
+
+// Do not use
+import '../../../../core/network/result.dart';
+import '../../data/repositories/auth_repository.dart';
+```
 
 ## 3. Dependency Management
 * NEVER add new packages by inserting the name directly into `pubspec.yaml`. Instead, always use the terminal commands: `flutter pub add <package_name>` or `flutter pub add dev:<package_name>` for dev dependencies.
